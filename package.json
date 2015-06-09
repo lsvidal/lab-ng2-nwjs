@@ -1,0 +1,33 @@
+{
+  "name": "lab-ng2-nwjs",
+  "version": "1.0.0",
+  "description": "Experimentation with NW.js, Angular 2 and TypeScript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://lsvidal@github.com/lsvidal/lab-ng2-nwjs.git"
+  },
+  "keywords": [
+    "angular2",
+    "typescript",
+    "nw.js",
+    "gulp"
+  ],
+  "author": "Leonardo Vidal <leonardo73vidal@gmail.com> (lsvidal.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lsvidal/lab-ng2-nwjs/issues"
+  },
+  "homepage": "https://github.com/lsvidal/lab-ng2-nwjs#readme",
+  "window": {
+    "width": 800,
+    "height": 600,
+    "toolbar": false
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
