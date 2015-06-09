@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab NW ng2</title>
+</head>
+<body>
+	<h1>Static Hello world!</h1>
+
+
+	<!-- Reloads the application on content change 
+			ref: https://github.com/nwjs/nw.js/wiki/Livereload-nw.js-on-changes
+	-->
+	<script>
+	  var gulp = require('gulp');
+  	gulp.task('reload', function () {
+    	if (location) location.reload();
+  	});
+
+  	gulp.watch('**/*', ['reload']);
+	</script>
+</body>
+</html>
