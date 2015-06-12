@@ -1,36 +1,24 @@
 'use strict';
 
-var gulp = require('gulp'),
+var gulp = require('gulp');
+var config = require('./gulp.config');
+
+/*
     debug = require('gulp-debug'),
     inject = require('gulp-inject'),
     tsc = require('gulp-typescript'),
-    sourcemaps = require('gulp-sourcemaps'),
-    watch = require('gulp-watch'),
+    sourcemaps = require('gulp-sourcemaps'),    
     connect = require('gulp-connect'),
     rename = require('gulp-rename');
+*/
 
-var Config = require('./gulpfile.config');
-
-var config = new Config();
-
-gulp.task('webserver', function () {
-    connect.server({
-        livereload: true,
-        root: config.dist.path,
-        port: 9000
-    });
-});
-
-gulp.task('livereload', ['webserver'], function () {
-    var files = [ config.dist.allFiles ];
-    gulp.src(files)
-        .pipe(watch(files))
-        .pipe(connect.reload());
-});
+var loadTasks = require('./gulp-tasks/helpers/loadTasks');
+loadTasks(config);
 
 /*
  * Moves only the necessary dependencys handled by Bower to scripts folder
  */
+ /*
 gulp.task('bower-dependencies', function () {
    
     var mainBowerFiles  = require('main-bower-files');
@@ -78,12 +66,13 @@ gulp.task('angular2', function () {
     var Builder = require('systemjs-builder');
     var builder = new Builder(buildConfig);
 
-    return builder.build('angular2/angular2', config.dist.pathLibs + 'angular2.js', {/*minify: true,*/ sourceMaps: true});
+    return builder.build('angular2/angular2', config.dist.pathLibs + 'angular2.js', {minify: true, sourceMaps: true});
 });
-
+*/
 /**
  * Generates the app.d.ts references file dynamically from all application *.ts files.
  */
+ /*
 gulp.task('gen-ts-refs', function () {
     var sources = gulp.src([config.src.ts], {read: false});
     return gulp.src(config.dtsApp)
@@ -97,10 +86,11 @@ gulp.task('gen-ts-refs', function () {
             }))
             .pipe(gulp.dest(config.typings));
 });
-
+*/
 /**
  * Compile TypeScript and include references to library and app .d.ts files.
  */
+ /*
 gulp.task('compile-ts', ['gen-ts-refs'], function () {
     var sourceTsFiles = [config.src.ts,                       //path to typescript files
                          config.dtsLibs, //reference to library .d.ts files
@@ -129,35 +119,10 @@ gulp.task('compile-ts', ['gen-ts-refs'], function () {
                         .pipe(sourcemaps.write('.'))
                         .pipe(gulp.dest(config.dist.pathScripts));
 });
+*/
 
-gulp.task('process-html', function() {
-    gulp.src(config.src.html)
-        .pipe(gulp.dest(config.dist.path));
-});
+//gulp.task('static-assets', ['angular2', 'angular2-dependencies', 'bower-dependencies']);
 
-gulp.task('process-css', function() {
-    gulp.src(config.src.css)
-        .pipe(gulp.dest(config.dist.pathCss));
-});
+//gulp.task('default', ['static-assets', 'process-html', 'process-css', 'compile-ts', 'watch', 'livereload']);
 
-gulp.task('watch', function() {
-    gulp.watch([config.src.ts], ['compile-ts']);
-    gulp.watch([config.src.html], ['process-html']);
-    gulp.watch([config.src.css], ['process-css']);
-});
-
-/*
- * Limpa o diretório de scripts gerados e de dependências do Bower.
- */
-gulp.task('clean', function() {
-    var del = require('del');
-    del([config.dist.path], function (err) {
-      if (err) {
-        console.error('Failed to delete ' + config.dist.path + ' due to ' + err);
-      }
-    });
-});
-
-gulp.task('static-assets', ['angular2', 'angular2-dependencies', 'bower-dependencies']);
-
-gulp.task('default', ['static-assets', 'process-html', 'process-css', 'compile-ts', 'watch', 'livereload']);
+gulp.task('default', ['process-html', 'process-css', 'watch', 'nw-run']);

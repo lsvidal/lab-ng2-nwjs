@@ -8,6 +8,10 @@ I grew very interested in NW.js (former Node-WebKit) and Angular as a solution t
 
 I choose to base my buid tools around [Gulp](http://gulpjs.com/) after some tests against [Grunt](http://gruntjs.com/).
 
+## Steps
+
+1. Try node-webkit-builder. Installing globally.
+
 ## Roadmap
 
 1. Create a basic NW.js, TypeScript and Gulp build.
