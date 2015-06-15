@@ -7,7 +7,8 @@ var conf = {};
 
 conf.src = {
     path: src,
-    ts: src + 'scripts/**/*.ts',
+    //ts: src + 'scripts/**/*.ts',
+    ts: src + 'scripts/**/*.js',
     css: src + 'styles/**/*.css',
     html: src + '**/*.html'
 };
