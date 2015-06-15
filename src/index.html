@@ -2,40 +2,29 @@
 <html>
 <head>
 	<title>Lab NW ng2</title>
+	<link rel="stylesheet" type="text/css" href="styles/app.css" media="screen"/>
 </head>
 <body>
 	<h1>Static Hello world!</h1>
 	<div id="info"></div>
-	<script type="text/javascript">
-		var process = require('process');
-		var doc = document.getElementById('info');
-		var platform = process.platform;
-		var arch = process.arch;
-		var msg = 'unknown';
-		if (arch === 'x64') {
-			if (platform === 'win32') {
-				msg = 'Windows 64 bits';
-			} else {
-				msg = 'Linux 32 bits';
-			}
-		} else {
-			if (platform === 'win32') {
-				msg = 'Windows 32 bits';
-			} else {
-				msg = 'Linux 32 bits';
-			}
-		}
-		doc.innerHTML = 'Current arch is ' + msg;
-	</script>
+	<!--
+	<script type="text/javascript" src="scripts/index.js"/>
+	-->
 	<!-- Reloads the application on content change 
 			ref: https://github.com/nwjs/nw.js/wiki/Livereload-nw.js-on-changes
 	-->
 	<script>
 	  var gulp = require('gulp');
+
   	gulp.task('reload', function () {
-    	if (location) location.reload();
+  		console.log('watch activated');
+    	if (location) {
+    		console.log('Reloading');
+    		location.reload();
+    	}
   	});
 
+  	console.log('Registering watch task');
   	gulp.watch('**/*', ['reload']);
 	</script>
 </body>
