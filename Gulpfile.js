@@ -125,4 +125,4 @@ gulp.task('compile-ts', ['gen-ts-refs'], function () {
 
 //gulp.task('default', ['static-assets', 'process-html', 'process-css', 'compile-ts', 'watch', 'livereload']);
 
-gulp.task('default', ['process-html', 'process-css', 'watch', 'nw-run']);
+gulp.task('default', ['process-html', 'process-css', 'process-ts', 'watch', 'nw-run']);

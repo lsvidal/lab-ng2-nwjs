@@ -25,7 +25,10 @@
   "devDependencies": {
     "del": "^1.2.0",
     "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.5",
-    "node-webkit-builder": "^1.0.12"
+    "node-webkit-builder": "^1.0.12",
+    "tsify": "^0.11.2"
   }
 }
