@@ -23,12 +23,21 @@
   },
   "homepage": "https://github.com/lsvidal/lab-ng2-nwjs#readme",
   "devDependencies": {
+    "browserify": "^10.2.4",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-rename": "^1.2.2",
+    "gulp-debug": "^2.0.1",
+    "gulp-inject": "^1.3.1",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-util": "^3.0.5",
+    "lodash.assign": "^3.2.0",
     "node-webkit-builder": "^1.0.12",
-    "tsify": "^0.11.2"
+    "require-dir": "^0.3.0",
+    "tsify": "^0.11.2",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.2"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4"
   }
 }
