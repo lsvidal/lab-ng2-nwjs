@@ -7,18 +7,17 @@ var conf = {};
 
 conf.src = {
     path: src,
+    tsMain: src + 'scripts/index.ts',
     ts: src + 'scripts/**/*.ts',
-    appMain: src + 'scripts/index.ts',
     css: src + 'styles/**/*.css',
     html: src + '**/*.html'
 };
 
 conf.build = {
     path: build,
-    allFiles: build + '**',
-    pathScripts: build + 'scripts/',
-    pathCss: build + 'styles/',
-    pathLibs: build + 'scripts/libs/'
+    jsBundle: 'app.bundle.js',
+    scripts: build + 'scripts/',
+    css: build + 'styles/'
 };
 
 conf.release = {
@@ -34,8 +33,25 @@ conf.nodeModules = './node_modules/';
 conf.nwBuild = {
     version: '0.12.2',
     platforms: ['win32', 'win64'],
-    files: conf.build.allFiles,
+    files: build + '**',
     buildDir: conf.release.path
+};
+
+conf.browserify = {
+    debug: true,
+    entries: conf.src.tsMain,
+    extensions: ['.ts']
+};
+
+conf.tsify = {
+     target: 'ES5',
+     declarationFiles: true,
+     noExternalResolve: true,
+     noLib: false,
+     noImplicitAny: true,
+     listFiles: true,
+     typescript: require('typescript') // Used to exchange the default version of Typescript compiler
+                                       // by the version set in devDependnecies in package.json    
 };
 
 module.exports = conf;

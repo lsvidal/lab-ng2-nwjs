@@ -1,4 +1,3 @@
-'use strict';
 
 import msg = require('./msg');
 import $ = require('jquery');

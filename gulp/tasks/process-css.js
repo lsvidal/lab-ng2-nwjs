@@ -8,5 +8,5 @@ var gulp = require('gulp');
 
 gulp.task('process-css', function () {
 	gulp.src(config.src.css) 
-		.pipe(gulp.dest(config.build.pathCss)); 
+		.pipe(gulp.dest(config.build.css)); 
 });
