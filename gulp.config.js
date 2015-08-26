@@ -8,16 +8,13 @@ var conf = {};
 conf.src = {
     path: src,
     ts: src + 'scripts/**/*.ts',
-    css: src + 'styles/**/*.css',
-    html: src + '**/*.html'
+    static: src + 'static/**/*.*'
 };
 
 conf.build = {
     path: build,
     allFiles: build + '**',
-    pathScripts: build + 'scripts/',
-    pathCss: build + 'styles/',
-    pathLibs: build + 'scripts/libs/'
+    pathScripts: build + 'scripts/'
 };
 
 conf.release = {
@@ -27,10 +24,6 @@ conf.release = {
 conf.typings = './tools/typings/';
 conf.dtsLibs =  conf.typings + 'lib/**/*.ts';
 conf.dtsApp = conf.typings + 'App.d.ts';
-
-conf.bowerComponents = './bower_components/';
-conf.nodeModules = './node_modules/';
-conf.tasksDir = './gulp-tasks/';
 
 conf.nwBuild = {
     version: '0.12.2',
