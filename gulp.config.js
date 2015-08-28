@@ -26,7 +26,7 @@ conf.dtsLibs =  conf.typings + 'lib/**/*.ts';
 conf.dtsApp = conf.typings + 'App.d.ts';
 
 conf.nwBuild = {
-    version: '0.12.2',
+    version: '0.12.3',
     platforms: ['win32', 'win64'],
     files: conf.build.allFiles,
     buildDir: conf.release.path
