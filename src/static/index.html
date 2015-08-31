@@ -5,22 +5,38 @@
 	<title>Lab NW ng2</title>
 </head>
 <body style="background-color: gray;color: white;">
-	<h1>Hello world!</h1>
+	<h1>Hello world!!!</h1>
 	<div id="info"></div>
 	<!-- Reloads the application on content change
 			ref: https://github.com/nwjs/nw.js/wiki/Livereload-nw.js-on-changes
 	-->
 	<script>
-	  var gulp = require('gulp');
 		console.log('Processo (' + process.pid + ') : Criando a task para monitorar alterações nos arquivos');
-  	gulp.task('reload', function () {
-    	if (location) {
+
+	  var Gaze = require('gaze');
+		var gaze = new Gaze('**/*');
+
+		gaze.on('error', function(error) {
+			console.error('Gaze: ' + error);
+		});
+
+		gaze.on('ready', function(watcher) {
+			console.log('Gaze: início da observação dos arquivos');
+		});
+
+		// all serve para receber added, deleted ou changed
+		gaze.on('all', function(event, filepath) {
+			console.log('Gaze (' + event + ') : ' + filepath);
+			if (location) {
+				gaze.close();
 				console.log('Processo (' + process.pid + ') : Recarregando a página');
 				location.reload();
 			}
-  	});
+		});
 
-  	gulp.watch('./**/*', ['reload']);
+		gaze.on('end', function() {
+			console.log('Gaze: parou de observar todos os arquivos');
+		});
 	</script>
 	<script src="scripts/nav.js"></script>
 </body>
