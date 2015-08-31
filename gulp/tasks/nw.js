@@ -6,7 +6,7 @@ var config = require('../../gulp.config');
 
 gulp.task('nw:run', function () {
 
-	var NwBuilder = require('node-webkit-builder');
+	var NwBuilder = require('nw-builder');
 
 	var nw = new NwBuilder(config.nwBuild);
 
