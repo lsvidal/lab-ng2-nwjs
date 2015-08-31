@@ -7,14 +7,15 @@ var conf = {};
 
 conf.src = {
     path: src,
-    ts: src + 'scripts/**/*.ts',
+    ts: src + 'app/**/*.ts',
+    js: src + 'app/**/*.js',
     static: src + 'static/**/*.*'
 };
 
 conf.build = {
     path: build,
     allFiles: build + '**',
-    pathScripts: build + 'scripts/'
+    scripts: build + 'scripts/'
 };
 
 conf.release = {
