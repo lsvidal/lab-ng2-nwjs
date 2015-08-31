@@ -1,6 +1,6 @@
 'use strict';
 
-console.log('funcionando');
+console.log('Processo (' + process.pid + ') : Renderizando a página');
 var process = require('process');
 var doc = document.getElementById('info');
 var platform = process.platform;
@@ -19,4 +19,4 @@ if (arch === 'x64') {
     msg = 'Linux 32 bits';
   }
 }
-doc.innerHTML = 'Current arch is ' + msg + ' : ' + process.mainModule.exports.getMessage() + ' process version: ' + process.version;
+doc.innerHTML = 'A arquitetura é ' + msg + '<p>' + process.mainModule.exports.getMessage();

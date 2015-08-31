@@ -2,10 +2,12 @@
 
 (function(){
   //window.console.log('App iniciado');
-  var i = 5;
+  console.log('App iniciado');
+  var i = 1;
   exports.getMessage = function () {
-    var msg = 'Call ' + i;
+    var msg = 'Essa função foi chamada ' + i + ' vezes';
     i = i + 1;
-    return msg
+    console.log('Processo (' + process.pid + ') : getMessage chamado');
+    return msg;
   }
 })();
