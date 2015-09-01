@@ -2,7 +2,6 @@
   "name": "lab-ng2-nwjs",
   "version": "1.0.0",
   "main": "index.html",
-  "node-main": "scripts/app.js",
   "window": {
     "width": 800,
     "height": 600,
