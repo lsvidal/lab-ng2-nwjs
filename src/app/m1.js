@@ -1,6 +1,7 @@
 'use strict';
 
 console.log('Módulo m1 criado');
+console.log(typeof __dirname !== 'undefined' ? 'Tenho __dirname' : 'Não tenho __dirname');
 
 var contador = 1;
 

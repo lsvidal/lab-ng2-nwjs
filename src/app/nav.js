@@ -1,6 +1,8 @@
 'use strict';
 
 console.log('Processo (' + process.pid + ') : Renderizando a página');
+console.log(typeof __dirname !== 'undefined' ? 'Tenho __dirname' : 'Não tenho __dirname');
+
 var process = require('process');
 var doc = document.getElementById('info');
 var platform = process.platform;
