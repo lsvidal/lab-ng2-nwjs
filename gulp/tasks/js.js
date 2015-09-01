@@ -7,7 +7,7 @@ var gulp = require('gulp');
 var config = require('../../gulp.config');
 
 gulp.task('js:dev', function () {
-	gulp.src(config.src.js)
+	return gulp.src(config.src.js)
 		.pipe(gulp.dest(config.dest.scripts));
 });
 
