@@ -1,25 +1,30 @@
 'use strict';
 
 var src =  './src/';
-var build = './build/';
+var dest = './build/';
 var release = './release';
 var conf = {};
 
 conf.src = {
-    path: src,
+    base: src,
     ts: src + 'app/**/*.ts',
     js: src + 'app/**/*.js',
-    static: src + 'static/**/*.*'
+    html: src + 'static/**/*.html',
+    css: src + 'static/**/*.css',
+    nwjs: {
+      manifest: src + 'static/package.json'
+    }
 };
 
-conf.build = {
-    path: build,
-    allFiles: build + '**',
-    scripts: build + 'scripts/'
+conf.dest = {
+    base: dest,
+    all: dest + '**',
+    scripts: dest + 'scripts/',
+    styles: dest + 'styles/'
 };
 
 conf.release = {
-    path: release
+    base: release
 };
 
 conf.typings = './tools/typings/';
@@ -29,8 +34,8 @@ conf.dtsApp = conf.typings + 'App.d.ts';
 conf.nwBuild = {
     version: '0.12.3',
     platforms: ['win32', 'win64'],
-    files: conf.build.allFiles,
-    buildDir: conf.release.path
+    files: conf.dest.all,
+    buildDir: conf.release.base
 };
 
 module.exports = conf;

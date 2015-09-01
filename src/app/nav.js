@@ -26,8 +26,8 @@ function endsWith(s1, s2) {
   return s1.match(s2 + '$') == s2;
 }
 
-var m1 = require('./m1');
-var m2 = require('./m2');
+var m1 = require('./scripts/m1');
+var m2 = require('./scripts/m2');
 
 doc.innerHTML = '<p>A arquitetura é ' + msg + '</p><p>' + m1.getMessage() + '</p><p>' + m2.getMessage() + '</p>';
 for (var i in global.require.cache) {

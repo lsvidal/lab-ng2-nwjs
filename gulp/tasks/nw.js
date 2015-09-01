@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var config = require('../../gulp.config');
 
-gulp.task('nw:run', function () {
+gulp.task('nw:run', ['nw:dep'], function () {
 
 	var NwBuilder = require('nw-builder');
 
@@ -19,4 +19,9 @@ gulp.task('nw:run', function () {
 	});
 
 	return nw;
+});
+
+gulp.task('nw:dep', function () {
+	return gulp.src(config.src.nwjs.manifest)
+		.pipe(gulp.dest(config.dest.base));
 });

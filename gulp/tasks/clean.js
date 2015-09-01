@@ -10,14 +10,14 @@ var del = require('del');
 
 gulp.task('clean', function() {
 
-  del(config.build.path, function (err) {
+  del(config.dest.base, function (err) {
     if (err) {
-      console.error('Failed to delete ' + config.build.path + ' due to ' + err);
+      console.error('Failed to delete ' + config.dest.base + ' due to ' + err);
     }
   });
-  del(config.release.path, function (err) {
+  del(config.release.base, function (err) {
     if (err) {
-      console.error('Failed to delete ' + config.release.path + ' due to ' + err);
+      console.error('Failed to delete ' + config.release.base + ' due to ' + err);
     }
   });
 });

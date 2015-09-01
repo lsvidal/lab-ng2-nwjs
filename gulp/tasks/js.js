@@ -8,7 +8,7 @@ var config = require('../../gulp.config');
 
 gulp.task('dev:js', function () {
 	gulp.src(config.src.js)
-		.pipe(gulp.dest(config.build.scripts));
+		.pipe(gulp.dest(config.dest.scripts));
 });
 
 gulp.task('watch:js', ['dev:js'], function() {
