@@ -3,4 +3,4 @@
 var gulp = require('gulp');
 var config = require('../../gulp.config');
 
-gulp.task('default', ['dev:css', 'dev:html', 'dev:js', 'watch:css', 'watch:html', 'watch:js', 'nw:run']);
+gulp.task('default', ['css:dev', 'html:dev', 'js:dev', 'css:watch', 'html:watch', 'js:watch', 'nw:run']);

@@ -6,11 +6,11 @@
 var gulp = require('gulp');
 var config = require('../../gulp.config');
 
-gulp.task('dev:js', function () {
+gulp.task('js:dev', function () {
 	gulp.src(config.src.js)
 		.pipe(gulp.dest(config.dest.scripts));
 });
 
-gulp.task('watch:js', ['dev:js'], function() {
-	gulp.watch(config.src.js, ['dev:js']);
+gulp.task('js:watch', ['js:dev'], function() {
+	gulp.watch(config.src.js, ['js:dev']);
 });
