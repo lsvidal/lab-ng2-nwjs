@@ -19,8 +19,10 @@ conf.src = {
     },
     libs: [
       'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
-      'node_modules/angular2/bundles/angular2.min.js',
-      'node_modules/systemjs/dist/system-csp-production.js'
+      'node_modules/angular2/bundles/angular2.js',
+      'node_modules/systemjs/dist/system.js',
+      //'node_modules/systemjs/dist/system-csp-production.js',
+      'node_modules/es6-promise/dist/es6-promise.js'
     ],
     typings: 'node_modules/angular2/bundles/typings/angular2/angular2.d.ts'
 };

@@ -6,6 +6,7 @@
 </head>
 <body style="background-color: #333;color: #aaa;">
 	<h1>Hello world!!!</h1>
+	<hello>Loading...</hello>
 	<div id="info"></div>
 	<!-- Reloads the application on content change
 			ref: https://github.com/nwjs/nw.js/wiki/Livereload-nw.js-on-changes
@@ -20,9 +21,16 @@
 	<script src="libs/system-csp-production.js"></script>
 
 	<script>
+	    //configure system loader
+	    System.config({
+				defaultJSExtensions: true,
+				map: {
+					angular2: 'libs'
+				}
+			});
+
     //bootstrap the Angular2 application
-    System.import('webkit/nav.js').catch(console.log.bind(console));
+    System.import('webkit/hello.js').catch(console.log.bind(console));
 	</script>
-	<!--<script src="webkit/nav.js"></script>-->
 </body>
 </html>
