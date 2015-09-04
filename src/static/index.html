@@ -11,32 +11,9 @@
 			ref: https://github.com/nwjs/nw.js/wiki/Livereload-nw.js-on-changes
 	-->
 	<script>
-		console.log('Processo (' + process.pid + ') : Criando a task para monitorar alterações nos arquivos');
-
-	  var Gaze = require('gaze');
-		var gaze = new Gaze('**/*');
-
-		gaze.on('error', function(error) {
-			console.error('Gaze: ' + error);
-		});
-
-		gaze.on('ready', function(watcher) {
-			console.log('Gaze: início da observação dos arquivos');
-		});
-
-		// all serve para receber added, deleted ou changed
-		gaze.on('all', function(event, filepath) {
-			console.log('Gaze (' + event + ') : ' + filepath);
-			if (location) {
-				gaze.close();
-				console.log('Processo (' + process.pid + ') : Recarregando a página');
-				location.reload();
-			}
-		});
-
-		gaze.on('end', function() {
-			console.log('Gaze: parou de observar todos os arquivos');
-		});
+		console.log('Carregando livereload');
+		var livereload = require('./node/livereload');
+		livereload.monitor();
 	</script>
 	<!-- ES6-related imports -->
 	<script src="libs/traceur-runtime.js"></script>

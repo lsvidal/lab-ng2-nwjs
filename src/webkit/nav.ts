@@ -27,21 +27,3 @@ var m1 = require('./node/m1');
 var m2 = require('./node/m2');
 
 doc.innerHTML = '<p>A arquitetura é ' + msg + '</p><p>' + m1.getMessage() + '</p><p>' + m2.getMessage() + '</p>';
-
-function scanModules() {
-
-  var reg = new RegExp('m2.js' + '$');
-
-  for (var i in global.require.cache) {
-    if (reg.test(i)) {
-      console.log('Achei');
-      delete global.require.cache[i];
-    }
-  }
-
-  for (var i in global.require.cache) {
-    console.log('- ' + i + ' : ' + global.require.cache[i]);
-  }
-}
-
-scanModules();
