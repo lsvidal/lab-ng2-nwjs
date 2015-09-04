@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var config = require('../../gulp.config');
 
-gulp.task('nw:run', ['nw:dep', 'css:watch', 'html:watch', 'js:watch'], function () {
+gulp.task('nw:run', ['nw:dep', 'css:watch', 'html:watch', 'ts:watch'], function () {
 
 	var NwBuilder = require('nw-builder');
 

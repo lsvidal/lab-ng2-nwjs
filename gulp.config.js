@@ -13,13 +13,20 @@ conf.src = {
     css: src + 'static/**/*.css',
     nwjs: {
       manifest: src + 'static/package.json'
-    }
+    },
+    libs: [
+      'node_modules/angular2/node_modules/traceur/bin/traceur-runtime.js',
+      'node_modules/angular2/bundles/angular2.min.js',
+      'node_modules/systemjs/dist/system-csp-production.js'
+    ],
+    typings: 'node_modules/angular2/bundles/typings/angular2/angular2.d.ts'
 };
 
 conf.dest = {
     base: dest,
     all: dest + '**',
     scripts: dest + 'scripts/',
+    libs: dest + 'scripts/libs/',
     styles: dest + 'styles/'
 };
 
