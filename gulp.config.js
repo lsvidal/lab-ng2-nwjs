@@ -7,7 +7,10 @@ var conf = {};
 
 conf.src = {
     base: src,
-    ts: src + 'app/**/*.ts',
+    ts: {
+      webkit: src + 'webkit/**/*.ts',
+      node: src + 'node/**/*.ts',
+    },
     js: src + 'app/**/*.js',
     html: src + 'static/**/*.html',
     css: src + 'static/**/*.css',
@@ -25,8 +28,9 @@ conf.src = {
 conf.dest = {
     base: dest,
     all: dest + '**',
-    scripts: dest + 'scripts/',
-    libs: dest + 'scripts/libs/',
+    webkit: dest + 'webkit/',
+    node: dest + 'node/',
+    libs: dest + 'libs/',
     styles: dest + 'styles/'
 };
 

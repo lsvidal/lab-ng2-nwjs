@@ -23,20 +23,25 @@ if (arch === 'x64') {
   }
 }
 
-function endsWith(s1: string, s2: string): boolean {
-  return s1.match(s2 + '$')[0] == s2;
-}
-
-var m1 = require('./scripts/m1');
-var m2 = require('./scripts/m2');
+var m1 = require('./node/m1');
+var m2 = require('./node/m2');
 
 doc.innerHTML = '<p>A arquitetura é ' + msg + '</p><p>' + m1.getMessage() + '</p><p>' + m2.getMessage() + '</p>';
-for (var i in global.require.cache) {
-  if (endsWith(i, 'm2.js')) {
-    console.log('Achei');
-    delete global.require.cache[i];
+
+function scanModules() {
+
+  var reg = new RegExp('m2.js' + '$');
+
+  for (var i in global.require.cache) {
+    if (reg.test(i)) {
+      console.log('Achei');
+      delete global.require.cache[i];
+    }
+  }
+
+  for (var i in global.require.cache) {
+    console.log('- ' + i + ' : ' + global.require.cache[i]);
   }
 }
-for (var i in global.require.cache) {
-  console.log('- ' + i + ' : ' + global.require.cache[i]);
-}
+
+scanModules();
