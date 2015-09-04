@@ -5,8 +5,8 @@ console.log(typeof __dirname !== 'undefined' ? 'Tenho __dirname' : 'Não tenho _
 
 var contador = 1;
 
-module.exports.getMessage = function() {
-  var msg = 'O módulo m1 foi chamado ' + contador + ' vezes';
+export function getMessage(): string {
+  var msg: string = 'O módulo m1 foi chamado ' + contador + ' vezes';
   contador++;
   return msg;
 }
