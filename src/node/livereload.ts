@@ -34,7 +34,7 @@ export function monitor() {
   console.log('livereload');
 }
 
-function scanModules() {
+export function scanModules() {
 
   var reg = new RegExp('m2.js' + '$');
 
