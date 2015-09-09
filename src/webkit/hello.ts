@@ -1,4 +1,4 @@
-
+/*
 import {Component, View, bootstrap, CORE_DIRECTIVES} from 'angular2/angular2';
 
 @Component({
@@ -18,3 +18,8 @@ export class Hello {
 }
 
 bootstrap(Hello);
+*/
+
+export function sayHello() {
+  console.log('Hello');
+}

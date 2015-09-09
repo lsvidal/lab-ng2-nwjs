@@ -21,28 +21,35 @@
 		if (!window.gui.Window.get().isDevToolsOpen()) {
 			window.gui.Window.get().showDevTools();
 		}
+		window.require_node = window.require;
+		
 		console.log('Módulos na carga inicial');
 		livereload.scanModules();
 	</script>
 	<!-- ES6-related imports -->
 	<script src="libs/traceur-runtime.js"></script>
-	<script src="libs/system.src.js"></script>
+	<script src="libs/require.js"></script>
+	<!-- <script src="libs/system.src.js"></script> -->
 	<!-- <script src="libs/system-csp-production.src.js"></script> -->
 
 	<script>
 		console.log('Módulos após carregar o systemjs');
 		livereload.scanModules();
 	    //configure system loader
-	    System.config({
-				defaultJSExtensions: true,
-				baseURL: './libs',
-				map: {
-					'angular2/angular2': 'angular2'
-				}
-			});
+	    // System.config({
+			// 	defaultJSExtensions: true,
+			// 	baseURL: './libs',
+			// 	map: {
+			// 		'angular2/angular2': 'angular2'
+			// 	}
+			// });
 
     //bootstrap the Angular2 application
-    System.import('./webkit/hello.js').catch(console.log.bind(console));
+    // System.import('./webkit/hello.js').catch(console.log.bind(console));
+		requirejs(['./webkit/main'], function (hello) {
+			console.log('ok');
+		})
+
 		console.log('Módulos após carregar o hello');
 		livereload.scanModules();
 	</script>

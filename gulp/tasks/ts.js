@@ -18,7 +18,8 @@ var tsNodeProject = ts.createProject({
 
 var tsWebkitProject = ts.createProject({
 	noImplicitAny: true,
-	module: 'commonjs',
+	module: 'amd',
+	// module: 'commonjs',
 	// module: 'system',
 	target: 'ES5',
 	emitDecoratorMetadata: true,
