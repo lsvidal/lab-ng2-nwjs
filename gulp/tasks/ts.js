@@ -5,6 +5,7 @@
 
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
 var config = require('../../gulp.config');
 
 var tsNodeProject = ts.createProject({
@@ -17,7 +18,8 @@ var tsNodeProject = ts.createProject({
 
 var tsWebkitProject = ts.createProject({
 	noImplicitAny: true,
-	module: 'system',
+	module: 'commonjs',
+	// module: 'system',
 	target: 'ES5',
 	emitDecoratorMetadata: true,
 	experimentalDecorators: true
@@ -29,17 +31,21 @@ gulp.task('libs', function() {
 });
 
 gulp.task('webkit:dev', ['libs'], function () {
-	var tsResult = gulp.src(config.src.ts.webkit)
-									.pipe(ts(tsWebkitProject));
-
-  return tsResult.js.pipe(gulp.dest(config.dest.webkit));
+	return gulp.src(config.src.ts.webkit)
+		.pipe(sourcemaps.init())
+		.pipe(ts(tsWebkitProject))
+		.js
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest(config.dest.webkit));
 });
 
 gulp.task('node:dev', ['libs'], function () {
-	var tsResult = gulp.src(config.src.ts.node)
-									.pipe(ts(tsNodeProject));
-
-  return tsResult.js.pipe(gulp.dest(config.dest.node));
+	return gulp.src(config.src.ts.node)
+		.pipe(sourcemaps.init())
+		.pipe(ts(tsNodeProject))
+		.js
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest(config.dest.node));
 });
 
 gulp.task('ts:watch', ['node:dev', 'webkit:dev'], function() {
