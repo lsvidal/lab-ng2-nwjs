@@ -15,13 +15,19 @@
 		console.log('Carregando livereload');
 		var livereload = require('./node/livereload');
 		livereload.monitor();
+		// Pega uma referência para a API Window do NW.js
+		window.gui = require('nw.gui');
+		// Mostra a janela de devTools se ainda não estiver aberta
+		if (!window.gui.Window.get().isDevToolsOpen()) {
+			window.gui.Window.get().showDevTools();
+		}
 		console.log('Módulos na carga inicial');
 		livereload.scanModules();
 	</script>
 	<!-- ES6-related imports -->
 	<script src="libs/traceur-runtime.js"></script>
-	<!-- <script src="libs/system.src.js"></script> -->
-	<script src="libs/system-csp-production.src.js"></script>
+	<script src="libs/system.src.js"></script>
+	<!-- <script src="libs/system-csp-production.src.js"></script> -->
 
 	<script>
 		console.log('Módulos após carregar o systemjs');
